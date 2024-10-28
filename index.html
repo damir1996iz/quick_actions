@@ -6,9 +6,12 @@
 <body>
     <p>Quick acitons for our browser</p>
 
-    <p>
-        <button id="getShortcutsStatusHandlerBtn" class="btn btn-primary">send getShortcutsStatusHandler</button>
-    </p>
+    <div class="card" style="width: 18rem; padding: 8em;">
+        <div class="card-body">
+            <h5 class="card-title">getShortcutsStatusHandler</h5>
+            <button id="getShortcutsStatusHandlerBtn" class="btn btn-primary">Send</button>
+        </div>
+    </div>
     
     <p>
         <select id ="updateShortcutsStatusHandlerPicker" class="selectpicker">
@@ -27,10 +30,12 @@
         $(document).ready(function(){
 
             $("#getShortcutsStatusHandlerBtn").click(function(){
-                alert("getShortcutsStatusHandlerBtn was clicked.");
+                console.log("getShortcutsStatusHandlerBtn was clicked.");
+                
             });
 
             $("#updateShortcutsStatusHandlerBtn").click(function(){
+                console.log("updateShortcutsStatusHandlerBtn was clicked.");
                 let status = $("#updateShortcutsStatusHandlerPicker").val()
                 alert(status)
             });

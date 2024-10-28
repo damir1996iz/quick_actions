@@ -132,6 +132,31 @@
    },
    "version":"2"
 }`
+
+    let updateShortcutsTemplatesHandlerText = `"shortcutsTemplates": {
+    "partners":[{
+        "partnerID": 1,
+        "partnerName": "ВТБ",
+        "partnerHost": "https://ift-ibrb1-sharing.vtb.ru",
+        "partnerTemplatesUpdateUrl": "https://ift-ibrb1-sharing.vtb.ru",
+        "partnerShortcuts": [
+              {
+          "partnerShortcutId":"1-1",
+                "title": "БФ Константина Хабенского_1",
+                "typeName": "template",
+                "path": "/payments/Pozhertvovaniya/3916?templateId=2106394f-6d1e-400c-afc7-81d2a6bdd00f",
+                "icon": "https://ift-ibrb1-sharing.vtb.ru/projects/pmnt_catalog/files/logo/operations/3916.png"
+              },
+              {
+        "partnerShortcutId":"1-2",
+                "title": "ДОМ.RU - интернет,ТВ",
+                "typeName": "template",
+                "path": "/payments/InterTeliUslSvyaz/3812?templateId=997ee36c-a608-428b-a51a-40a1fdd71197",
+                "icon": "https://ift-ibrb1-sharing.vtb.ru/projects/pmnt_catalog/files/logo/operations/3812.png"
+              }
+        ]
+    }]
+}`
 </script>
 
 <html lang="en">
@@ -167,10 +192,21 @@
         <div class="card-body">
             <h5 class="card-title">addShortcutHandler</h5>
             <p class="card-text">
-                <label for="addShortcutHandlerTextArea">Data</label>
+                <label for="addShortcutHandlerTextArea">Data:</label>
                 <textarea class="form-control" id="addShortcutHandlerTextArea" rows="10"></textarea>
             </p>
             <button id="addShortcutHandlerBtn" class="btn btn-primary">Send</button>
+        </div>
+    </div>
+
+    <div class="card" style="width: 30rem; margin: 2em;">
+        <div class="card-body">
+            <h5 class="card-title">updateShortcutsTemplatesHandler</h5>
+            <p class="card-text">
+                <label for="updateShortcutsTemplatesHandlerTextArea">Data:</label>
+                <textarea class="form-control" id="updateShortcutsTemplatesHandlerTextArea" rows="10"></textarea>
+            </p>
+            <button id="updateShortcutsTemplatesHandlerBtn" class="btn btn-primary">Send</button>
         </div>
     </div>
 
@@ -180,6 +216,7 @@
 
     <script>
         document.getElementById('addShortcutHandlerTextArea').value = addShortcutHandlerText
+        document.getElementById('updateShortcutsTemplatesHandlerTextArea').value = updateShortcutsTemplatesHandlerText
 
         $(document).ready(function(){
 
@@ -195,7 +232,15 @@
             });
 
             $("#addShortcutHandlerBtn").click(function(){
-                console.log(defaultShortcuts.toString());
+                console.log("addShortcutHandlerBtn was clicked.");
+                let data = $("#addShortcutHandlerTextArea").val()
+                console.log(data);
+            });
+
+            $("#updateShortcutsTemplatesHandlerBtn").click(function(){
+                console.log("updateShortcutsTemplatesHandlerBtn was clicked.");
+                let data = $("#updateShortcutsTemplatesHandlerTextArea").val()
+                console.log(data);
             });
         });
     </script>

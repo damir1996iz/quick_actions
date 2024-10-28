@@ -1,5 +1,14 @@
 <script>
-    let defaultShortcuts = [
+    const addShortcutHandlerText = `
+    {
+   "description": "Ярлыки предоставлены сайтами для быстрого доступа к страницам и сервисам сайта. Вы можете добавить ярлыки при посещении сайта, если сайт поддерживает такую возможность. Для настройки нажмите на кнопку расположенную в нижней части экрана справа.",
+   "defaultShortcuts":{
+      "partners":[
+         {
+            "partnerID":"1",
+            "partnerName":"ВТБ",
+            "partnerHost":"https://ift-ibrb1-sharing.vtb.ru",
+            "partnerShortcuts":[
                {
                   "partnerShortcutId":"1-2",
                   "title":"Переводы СБП",
@@ -42,7 +51,92 @@
                   "path":"/history",
                   "icon":"ic_36_Shortcut_History"
                }
-    ];
+            ]
+         }
+      ],
+      "isEnabled":true
+   },
+   "availableShortcuts":{
+      "partners":[
+         {
+            "partnerID":"1",
+            "partnerName":"ВТБ",
+            "partnerHost":"https://ift-ibrb1-sharing.vtb.ru",
+            "partnerShortcuts":[
+               {
+                  "partnerShortcutId":"1-1",
+                  "title":"Главная",
+                  "typeName":"main",
+                  "path":"/",
+                  "icon":"ic_36_Shortcut_Main"
+               },
+               {
+                  "partnerShortcutId":"1-2",
+                  "title":"Переводы СБП",
+                  "typeName":"transfer",
+                  "path":"/transfers/transferByPhone",
+                  "icon":"ic_36_Shortcut_SBP"
+               },
+               {
+                  "partnerShortcutId":"1-3",
+                  "title":"Мобильная связь",
+                  "typeName":"pay",
+                  "path":"/payments/Mobile/2820",
+                  "icon":"ic_36_Shortcut_phone"
+               },
+               {
+                  "partnerShortcutId":"1-4",
+                  "title":"Платежи",
+                  "typeName":"pay",
+                  "path":"/transfers",
+                  "icon":"ic_36_Shortcut_payments"
+               },
+               {
+                  "partnerShortcutId":"1-5",
+                  "title":"Между своими счетами",
+                  "typeName":"transfer",
+                  "path":"/transfers/ownTransfer/",
+                  "icon":"ic_36_Shortcut_my_accounts"
+               },
+               {
+                  "partnerShortcutId":"1-6",
+                  "title": "Пополнение себе со счета в другом банке",
+                  "typeName": "transfer",
+                  "path": "/transfers/me2mePullOwn",
+                  "icon": "ic_36_Shortcut_transfer"
+               },
+               {
+                  "partnerShortcutId":"1-7",
+                  "title":"QR",
+                  "typeName":"pay",
+                  "path":"/qrscanning",
+                  "icon":"ic_36_Shortcut_QR"
+               },
+               {
+                  "partnerShortcutId":"1-8",
+                  "title":"Баланс",
+                  "typeName":"main",
+                  "path":"/myFinance",
+                  "icon":"ic_36_Shortcut_Balance"
+               },
+               {
+                  "partnerShortcutId":"1-9",
+                  "title":"История",
+                  "typeName":"main",
+                  "path":"/history",
+                  "icon":"ic_36_Shortcut_History"
+               }
+
+            ]
+         }
+      ]
+   },
+   "version":"2"
+}
+    `
+    $("textarea#addShortcutHandlerTextArea").val(
+        addShortcutHandlerText
+    )
 </script>
 
 <html lang="en">
@@ -79,7 +173,7 @@
             <h5 class="card-title">addShortcutHandler</h5>
             <p class="card-text">
                 <label for="addShortcutHandlerTextArea">Data</label>
-                <textarea class="form-control" id="addShortcutHandlerTextArea" rows="10"/>
+                <textarea class="form-control" id="addShortcutHandlerTextArea" rows="10"></textarea>
             </p>
             <button id="addShortcutHandlerBtn" class="btn btn-primary">Send</button>
         </div>

@@ -58,9 +58,11 @@
 
             $("#getShortcutsStatusHandlerBtn").click(function(){
                 console.log("getShortcutsStatusHandlerBtn was clicked.");
-                window.AndroidWebViewHandler.sendMessage(JSON.stringify(
+                let message = JSON.stringify(
                     { type: 'getShortcutsStatusHandler' }
-                ))
+                )
+                console.log(`send message: ${message}`)
+                window.AndroidWebViewHandler.sendMessage(message)
             });
 
             $("#updateShortcutsStatusHandlerBtn").click(function(){

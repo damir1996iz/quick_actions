@@ -67,7 +67,7 @@
                 console.log("updateShortcutsStatusHandlerBtn was clicked.");
                 let status = $("#updateShortcutsStatusHandlerPicker").val();
                 let message = JSON.stringify(
-                    { type: 'updateShortcutsStatusHandlerBtn', data: `status: ${status}` }
+                    { type: 'updateShortcutsStatusHandler', data: `status: ${status}` }
                 )
                 console.log(`send message: ${message}`)
                 window.AndroidWebViewHandler.sendMessage(message)
@@ -76,13 +76,21 @@
             $("#addShortcutHandlerBtn").click(function(){
                 console.log("addShortcutHandlerBtn was clicked.");
                 let data = $("#addShortcutHandlerTextArea").val()
-                console.log(data);
+                let message = JSON.stringify(
+                    { type: 'addShortcutHandler', data: `${data}`}
+                )
+                console.log(message)
+                window.AndroidWebViewHandler.sendMessage(message)
             });
 
             $("#updateShortcutsTemplatesHandlerBtn").click(function(){
                 console.log("updateShortcutsTemplatesHandlerBtn was clicked.");
                 let data = $("#updateShortcutsTemplatesHandlerTextArea").val()
-                console.log(data);
+                let message = JSON.stringify(
+                    { type: 'updateShortcutsTemplatesHandler', data: `${data}`}
+                )
+                console.log(message)
+                window.AndroidWebViewHandler.sendMessage(message)
             });
         });
     </script>

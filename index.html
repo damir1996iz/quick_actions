@@ -58,13 +58,19 @@
 
             $("#getShortcutsStatusHandlerBtn").click(function(){
                 console.log("getShortcutsStatusHandlerBtn was clicked.");
-                
+                window.AndroidWebViewHandler.sendMessage(JSON.stringify(
+                    { type: 'getShortcutsStatusHandler' }
+                ))
             });
 
             $("#updateShortcutsStatusHandlerBtn").click(function(){
                 console.log("updateShortcutsStatusHandlerBtn was clicked.");
-                let status = $("#updateShortcutsStatusHandlerPicker").val()
-                alert(status)
+                let status = $("#updateShortcutsStatusHandlerPicker").val();
+                let message = JSON.stringify(
+                    { type: 'updateShortcutsStatusHandlerBtn', data: 'status: ${status}' }
+                )
+                console.log("send message: ${message}")
+                window.AndroidWebViewHandler.sendMessage(message)
             });
 
             $("#addShortcutHandlerBtn").click(function(){

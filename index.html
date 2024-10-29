@@ -67,9 +67,9 @@
                 console.log("updateShortcutsStatusHandlerBtn was clicked.");
                 let status = $("#updateShortcutsStatusHandlerPicker").val();
                 let message = JSON.stringify(
-                    { type: 'updateShortcutsStatusHandlerBtn', data: 'status: ${status}' }
+                    { type: 'updateShortcutsStatusHandlerBtn', data: `status: ${status}` }
                 )
-                console.log("send message: ${message}")
+                console.log(`send message: ${message}`)
                 window.AndroidWebViewHandler.sendMessage(message)
             });
 

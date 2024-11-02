@@ -8,6 +8,8 @@
         <div class="card-body">
             <h5 class="card-title">getShortcutsStatusHandler</h5>
             <button id="getShortcutsStatusHandlerBtn" class="btn btn-primary">Send</button>
+            <p/>
+            <div id="statusAnswer"></div>
         </div>
     </div>
     
@@ -44,6 +46,13 @@
                 <textarea class="form-control" id="updateShortcutsTemplatesHandlerTextArea" rows="10"></textarea>
             </p>
             <button id="updateShortcutsTemplatesHandlerBtn" class="btn btn-primary">Send</button>
+        </div>
+    </div>
+
+    <div class="card" style="width: 30rem; margin: 2em;">
+        <div class="card-body">
+            <h5 class="card-title">logoutHandler</h5>
+            <button id="logoutBtn" class="btn btn-primary">Send</button>
         </div>
     </div>
 
@@ -92,7 +101,21 @@
                 console.log(message)
                 window.AndroidWebViewHandler.sendMessage(message)
             });
+            $("#logoutBtn").click(function(){
+                console.log("logout was clicked.");
+                let message = JSON.stringify(
+                    { type: 'logoutHandler' }
+                )
+                console.log(`send message: ${message}`)
+                window.AndroidWebViewHandler.sendMessage(message)
+            });
         });
+    </script>
+    <script>
+        window.onmessage = function(e){
+            document.getElementById("statusAnswer").innerText = "Received: " + JSON.stringify(e.data.data)
+            console.log(e.data.data);
+        };
     </script>
 </body>
 </html>
